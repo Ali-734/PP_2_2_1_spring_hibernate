@@ -22,7 +22,7 @@ public class UserDaoImp implements UserDao {
       sessionFactory.getCurrentSession().save(user);
    }
    @Override
-   @Transactional
+
    public void add(User user, Car car) {
       sessionFactory.getCurrentSession().save(user);
       car.setUser(user);
@@ -37,7 +37,7 @@ public class UserDaoImp implements UserDao {
       return query.getResultList();
    }
    @Override
-   @Transactional
+
    public User UsersByCar(String model, int series){
       Query query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE car.model = :model AND car.series = :series");
       query.setParameter("model", model);

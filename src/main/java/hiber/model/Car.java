@@ -7,14 +7,20 @@ import java.io.Serializable;
 @Table(name = "car")
 public class Car implements Serializable {
 
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
+    private String model;
+
+    @Column
+    private int series;
+
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-    @Column
-    private String model;
-    @Column
-    private int series;
 
 
     public Car(){}
